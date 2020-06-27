@@ -1,3 +1,3 @@
 include ':TimerView'
 include ':app'
-rootProject.name = "TimeViewTest"
+rootProject.name = "TimerViewTest"

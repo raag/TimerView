@@ -1,4 +1,4 @@
-package com.raagpc.timeviewtest
+package com.raagpc.timerviewtest
 
 import org.junit.Test
 

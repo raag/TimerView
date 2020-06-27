@@ -1,4 +1,4 @@
-package com.raagpc.timeviewtest
+package com.raagpc.timerviewtest
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         backwardStatus = findViewById(R.id.backward_status)
 
         forwardTimer.setTimerViewListener(forwardListener)
-        backwardTimer.setTimerViewListener(backwardListener)
+        // backwardTimer.setTimerViewListener(backwardListener)
 
         backwardTimer.start()
         forwardTimer.start()

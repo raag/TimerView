@@ -24,7 +24,7 @@ class TimerView(context: Context, attrs: AttributeSet): androidx.appcompat.widge
     private val timerPadding: Int
     private val strokeWidth: Float
     private val viewModel: TimerViewViewModel
-    private lateinit var listener: TimerViewListener
+    private var listener: TimerViewListener? = null
 
     init {
         context.theme.obtainStyledAttributes(
