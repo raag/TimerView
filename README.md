@@ -13,5 +13,5 @@ allprojects {
 
 Add the dependency in your module build.gradle
 ```html
-   implementation 'com.github.raag.TimerView:v0.5.1beta'
+   implementation 'com.github.raag:TimerView:v0.5.1beta'
 ```
