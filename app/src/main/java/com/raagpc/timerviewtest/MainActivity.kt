@@ -30,21 +30,21 @@ class MainActivity : AppCompatActivity() {
     }
 
     private val forwardListener = object: TimerView.TimerViewListener {
-        override fun onTick(time: Int) {
+        override fun onTick(time: Int, timerView: TimerView) {
             forwardStatus.text = "Time to finish: $time"
         }
 
-        override fun onFinish() {
+        override fun onFinish(timerView: TimerView) {
             forwardStatus.text = "count finished!"
         }
     }
 
     private val backwardListener = object: TimerView.TimerViewListener {
-        override fun onTick(time: Int) {
+        override fun onTick(time: Int, timerView: TimerView) {
             backwardStatus.text = "Remaining time: $time"
         }
 
-        override fun onFinish() {
+        override fun onFinish(timerView: TimerView) {
             backwardStatus.text = "countdown finished!"
         }
     }

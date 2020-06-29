@@ -5,8 +5,7 @@
         <attr name="value" format="integer" />
         <attr name="colorPrimary" format="color" />
         <attr name="colorSecondary" format="color" />
-        <attr name="timerPadding" format="integer" />
-        <attr name="timerStrokeWidth" format="float" />
+        <attr name="timerStrokeWidth" format="dimension" />
         <attr name="isBackward" format="boolean" />
     </declare-styleable>
 </resources>

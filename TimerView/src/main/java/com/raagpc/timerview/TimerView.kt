@@ -7,21 +7,22 @@ import android.graphics.RectF
 import android.graphics.Typeface
 import android.util.AttributeSet
 import android.view.Gravity
+import androidx.annotation.Dimension
 
 class TimerView(context: Context, attrs: AttributeSet): androidx.appcompat.widget.AppCompatTextView(context, attrs) {
 
     interface TimerViewListener {
-        fun onTick(time: Int)
-        fun onFinish()
+        fun onTick(time: Int, timerView: TimerView)
+        fun onFinish(timerView: TimerView)
     }
 
-    private val maxValue: Int
+    private var maxValue: Int
     private var value: Int
     private val colorPrimary: Int
     private val colorSecondary: Int
     private val isBackward: Boolean
 
-    private val timerPadding: Int
+    private val timerPadding: Int = 5
     private val strokeWidth: Float
     private val viewModel: TimerViewViewModel
     private var listener: TimerViewListener? = null
@@ -35,8 +36,7 @@ class TimerView(context: Context, attrs: AttributeSet): androidx.appcompat.widge
             try {
                 colorPrimary = getColor(R.styleable.TimerView_colorPrimary, -0x000000)
                 colorSecondary = getColor(R.styleable.TimerView_colorSecondary, -0x999999)
-                timerPadding = getInteger(R.styleable.TimerView_timerPadding, 5)
-                strokeWidth = getFloat(R.styleable.TimerView_timerStrokeWidth, 20F)
+                strokeWidth = getDimension(R.styleable.TimerView_timerStrokeWidth, 10f)
                 isBackward = getBoolean(R.styleable.TimerView_isBackward, false)
                 maxValue = getInteger(R.styleable.TimerView_maxValue, 100)
 
@@ -63,18 +63,22 @@ class TimerView(context: Context, attrs: AttributeSet): androidx.appcompat.widge
     private fun setupObservers() {
         viewModel.value.observeForever {
             this.setValue(it)
-            listener?.onTick(it)
+            listener?.onTick(it, timerView = this)
         }
 
         viewModel.finished.observeForever {
             if (it) {
-                listener?.onFinish()
+                listener?.onFinish(timerView = this)
             }
         }
     }
 
     fun start() {
         viewModel.startTimer()
+    }
+
+    fun stop() {
+        viewModel.stop()
     }
 
     override fun onDraw(canvas: Canvas?) {
@@ -121,6 +125,20 @@ class TimerView(context: Context, attrs: AttributeSet): androidx.appcompat.widge
     fun setValue(countdown: Int) {
         this.value = countdown
         this.text = countdown.toString()
+        viewModel.setInitialValue(countdown)
+        invalidate()
+        requestLayout()
+    }
+
+    fun setMaxValue(maxValue: Int) {
+        this.maxValue = maxValue
+        viewModel.setMaxValue(maxValue)
+        invalidate()
+        requestLayout()
+    }
+
+    fun setIsBackward(isBackward: Boolean) {
+        viewModel.setIsBackward(isBackward)
         invalidate()
         requestLayout()
     }
