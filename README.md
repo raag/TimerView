@@ -32,7 +32,7 @@ dependencies {
 <p>To use the widget&nbsp;just add a <strong>com.raagpc.TimerView</strong> element in you activity layout (it's a good idea to use fixed dimensions):</p>
 
 ```xml
-&lt;com.raagpc.timerview.TimerView
+<com.raagpc.timerview.TimerView
         android:id="@+id/timer"
         android:layout_width="200dp"
         android:layout_height="200dp"
@@ -41,7 +41,7 @@ dependencies {
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" /&gt;
+        app:layout_constraintTop_toTopOf="parent" />
 ```
 <img alt="layout" data-align="center" data-entity-type="file" data-entity-uuid="0721e947-6a89-4f8f-b117-aa2110dc425e" src="https://user-images.githubusercontent.com/851942/86077324-62260e80-ba51-11ea-872e-a2658acbdca8.png" />
 <p>Now you can execute the <strong>start()</strong> method in you activity code.</p>
