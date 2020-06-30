@@ -47,7 +47,7 @@ dependencies {
 <p>Now you can execute the <strong>start()</strong> method in you activity code.</p>
 
 ```kotlin
-val timer = findViewById&lt;TimerView&gt;(R.id.timer)
+val timer = findViewById<TimerView>(R.id.timer)
 timer.start()
 ```
 <img alt="timer" data-align="center" data-entity-type="file" data-entity-uuid="fa35edb1-b245-4beb-9d60-fbaadf216f6f" src="https://user-images.githubusercontent.com/851942/86077390-7ec24680-ba51-11ea-95ae-5848b14f4350.gif" style="max-height:350px;" />
