@@ -1,4 +1,4 @@
-<p><a href="https://github.com/raag/TimerView">TimerView</a> is a library that allows you to add a graphic timer in your android apps, either you want a forward or backward timer, just&nbsp;add the element in your layout and start the timer.</p>
+<p>TimerView is a library that allows you to add a graphic timer in your android apps, either you want a forward or backward timer, just&nbsp;add the element in your layout and start the timer.</p>
 
 <p>&nbsp;</p>
 <img alt="banner" data-align="center" data-entity-type="file" data-entity-uuid="ca53e75c-b7e9-4974-870b-25689fc58a44" src="/sites/default/files/inline-images/banner_0.png" />
