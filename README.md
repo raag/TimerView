@@ -59,7 +59,7 @@ timer.start()
 
 <h3>&nbsp;</h3>
 
-<h3>ONTICK(TIME: INT, TIMERVIEW: TIMERVIEW)</h3>
+<h3>onTick(time: int, timeView: TimerView)</h3>
 
 <p>This method is triggered on every tick.</p>
 
@@ -72,7 +72,7 @@ timer.start()
 
 <h3>&nbsp;</h3>
 
-<h3>ONFINISH(TIMERVIEW: TIMERVIEW)</h3>
+<h3>onFinish(timerView: TimerView)</h3>
 
 <p>This method is triggered when the timer finishes.</p>
 
