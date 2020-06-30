@@ -238,10 +238,5 @@ timer.start()
 	<li>listener: TimerViewListener implementation.</li>
 </ul>
 
-<h2>&nbsp;</h2>
-
-<h2>Source code.</h2>
-
-<p>The source code it's avaliable in&nbsp;github:</p>
 
 <p><a href="https://github.com/raag/TimerView">https://github.com/raag/TimerView</a></p>
