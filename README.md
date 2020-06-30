@@ -1,7 +1,7 @@
 <p>TimerView is a library that allows you to add a graphic timer in your android apps, either you want a forward or backward timer, just&nbsp;add the element in your layout and start the timer.</p>
 
 <p>&nbsp;</p>
-<img alt="banner" data-align="center" data-entity-type="file" data-entity-uuid="ca53e75c-b7e9-4974-870b-25689fc58a44" src="/sites/default/files/inline-images/banner_0.png" />
+<img alt="banner" data-align="center" data-entity-type="file" data-entity-uuid="ca53e75c-b7e9-4974-870b-25689fc58a44" src="https://user-images.githubusercontent.com/851942/86077140-11aeb100-ba51-11ea-8fa2-91b376f9a302.png" />
 <h2>Installation.</h2>
 
 <p>The first step is to add jitpack as repository in your project, open your root <strong>build.gradle</strong> file and add the following line in <strong>repositories</strong> section:</p>
@@ -13,14 +13,14 @@
 }</code></pre>
 
 <p><strong>Note:</strong> It's important to note&nbsp;this file is the one in your&nbsp;root project and not the&nbsp;one in some&nbsp;module.</p>
-<img alt="build_root" data-align="center" data-entity-type="file" data-entity-uuid="fb2bf8f4-a812-4870-97c7-dd7afe58110d" src="/sites/default/files/inline-images/build.gradle_0.png" />
+<img alt="build_root" data-align="center" data-entity-type="file" data-entity-uuid="fb2bf8f4-a812-4870-97c7-dd7afe58110d" src="https://user-images.githubusercontent.com/851942/86077213-31de7000-ba51-11ea-9aa7-26557a83aeed.png" />
 <p>The next step is to add the library as dependency, open your build.gradle file in your app module as follows:</p>
 
 <pre>
 <code>dependencies {
     implementation 'com.github.raag:TimerView:v0.5.2beta'
 }</code></pre>
-<img alt="build_app" data-align="center" data-entity-type="file" data-entity-uuid="7e40e34c-f9de-4baa-ac45-3ff6b656bece" src="/sites/default/files/inline-images/build.gradle_app_0.png" />
+<img alt="build_app" data-align="center" data-entity-type="file" data-entity-uuid="7e40e34c-f9de-4baa-ac45-3ff6b656bece" src="https://user-images.githubusercontent.com/851942/86077221-360a8d80-ba51-11ea-89c8-c2773e364420.png" />
 <p>Click sync and wait until conclude the library download.</p>
 
 <p>&nbsp;</p>
@@ -40,13 +40,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" /&gt;</code></pre>
-<img alt="layout" data-align="center" data-entity-type="file" data-entity-uuid="0721e947-6a89-4f8f-b117-aa2110dc425e" src="/sites/default/files/inline-images/layout_0.png" />
+<img alt="layout" data-align="center" data-entity-type="file" data-entity-uuid="0721e947-6a89-4f8f-b117-aa2110dc425e" src="https://user-images.githubusercontent.com/851942/86077324-62260e80-ba51-11ea-872e-a2658acbdca8.png" />
 <p>Now you can execute the <strong>start()</strong> method in you activity code.</p>
 
 <pre>
 <code>val timer = findViewById&lt;TimerView&gt;(R.id.timer)
 timer.start()</code></pre>
-<img alt="timer" data-align="center" data-entity-type="file" data-entity-uuid="fa35edb1-b245-4beb-9d60-fbaadf216f6f" src="/sites/default/files/inline-images/timerview_1.gif" style="max-height:350px;" />
+<img alt="timer" data-align="center" data-entity-type="file" data-entity-uuid="fa35edb1-b245-4beb-9d60-fbaadf216f6f" src="https://user-images.githubusercontent.com/851942/86077390-7ec24680-ba51-11ea-95ae-5848b14f4350.gif" style="max-height:350px;" />
 <p>&nbsp;</p>
 
 <h2>TimerViewListener; How to get the time events.</h2>
