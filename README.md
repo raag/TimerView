@@ -127,7 +127,7 @@ timer.start()
 		<tr>
 			<td>value</td>
 			<td>int</td>
-			<td>Timer initial value</td>
+			<td>Timer's initial value</td>
 			<td>app:value="5"</td>
 		</tr>
 		<tr>
@@ -145,13 +145,13 @@ timer.start()
 		<tr>
 			<td>timerStrokeWidth</td>
 			<td>dimension</td>
-			<td>Width of the timer stroke.</td>
+			<td>Width of the timer's stroke.</td>
 			<td>app:timerStrokeWidth="10dp"</td>
 		</tr>
 		<tr>
 			<td>isBackWard</td>
 			<td>boolean</td>
-			<td>If it's true the timer will be a countdown</td>
+			<td>If it's true. the timer will start as a countdown</td>
 			<td>app:isBackward="true"</td>
 		</tr>
 		<tr>
