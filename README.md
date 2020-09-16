@@ -7,9 +7,11 @@
 <p>The first step is to add jitpack as repository in your project, open your root <strong>build.gradle</strong> file and add the following line in <strong>repositories</strong> section:</p>
 
 ```kotlin
-repositories {
-    ...
+allprojects {
+    repositories {
+        ...
 	maven { url 'https://jitpack.io' }
+    }
 }
 ```
 
