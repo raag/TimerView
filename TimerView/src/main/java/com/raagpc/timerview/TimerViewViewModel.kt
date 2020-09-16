@@ -51,7 +51,8 @@ class TimerViewViewModel(private var maxValue: Int, private var initialValue: In
 
     private fun initCountForward() {
         val maxValue = maxValue.toLong() * 1000
-        timer = object : CountDownTimer(maxValue, 1000) {
+        val initialValue = initialValue.toLong() * 1000
+        timer = object : CountDownTimer(maxValue - initialValue, 1000) {
             override fun onTick(millisUntilFinished: Long) {
                 val remainingTime:Int = (maxValue / 1000).toInt() - (millisUntilFinished / 1000).toInt()
                 value.postValue(remainingTime)

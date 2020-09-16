@@ -54,7 +54,7 @@ class TimerView(context: Context, attrs: AttributeSet): androidx.appcompat.widge
 
                 value = getInteger(R.styleable.TimerView_value, defaultValue)
                 gravity = Gravity.CENTER
-                text = value.toString()
+                text = getFormattedValue(value)
                 setTypeface(null, Typeface.BOLD)
                 setTextColor(colorPrimary)
             } finally {
@@ -130,11 +130,7 @@ class TimerView(context: Context, attrs: AttributeSet): androidx.appcompat.widge
 
     fun setValue(countdown: Int) {
         this.value = countdown
-        if (timeFormat) {
-            this.text = toTimeFormat(countdown)
-        } else {
-            this.text = countdown.toString()
-        }
+        this.text = getFormattedValue(countdown)
         viewModel.setInitialValue(countdown)
         invalidate()
         requestLayout()
@@ -159,6 +155,14 @@ class TimerView(context: Context, attrs: AttributeSet): androidx.appcompat.widge
 
     fun setTimerViewListener(listener: TimerViewListener) {
         this.listener = listener
+    }
+
+    private fun getFormattedValue(countdown: Int): String {
+        if (timeFormat) {
+            return toTimeFormat(countdown)
+        } else {
+            return countdown.toString()
+        }
     }
 
     private fun toTimeFormat(value: Int): String {
