@@ -7,9 +7,12 @@ import android.graphics.RectF
 import android.graphics.Typeface
 import android.util.AttributeSet
 import android.view.Gravity
-import androidx.annotation.Dimension
+import androidx.lifecycle.ViewModelProvider
 
-class TimerView(context: Context, attrs: AttributeSet): androidx.appcompat.widget.AppCompatTextView(context, attrs) {
+class TimerView(context: Context, attrs: AttributeSet): androidx.appcompat.widget.AppCompatTextView(
+    context,
+    attrs
+) {
 
     interface TimerViewListener {
         fun onTick(time: Int, timerView: TimerView)
@@ -21,6 +24,7 @@ class TimerView(context: Context, attrs: AttributeSet): androidx.appcompat.widge
     private val colorPrimary: Int
     private val colorSecondary: Int
     private val isBackward: Boolean
+    private val timeFormat: Boolean
 
     private val timerPadding: Int = 5
     private val strokeWidth: Float
@@ -31,7 +35,8 @@ class TimerView(context: Context, attrs: AttributeSet): androidx.appcompat.widge
         context.theme.obtainStyledAttributes(
             attrs,
             R.styleable.TimerView,
-            0, 0).apply {
+            0, 0
+        ).apply {
 
             try {
                 colorPrimary = getColor(R.styleable.TimerView_colorPrimary, -0x000000)
@@ -39,6 +44,7 @@ class TimerView(context: Context, attrs: AttributeSet): androidx.appcompat.widge
                 strokeWidth = getDimension(R.styleable.TimerView_timerStrokeWidth, 10f)
                 isBackward = getBoolean(R.styleable.TimerView_isBackward, false)
                 maxValue = getInteger(R.styleable.TimerView_maxValue, 100)
+                timeFormat = getBoolean(R.styleable.TimerView_timeFormat, false)
 
                 val defaultValue = if (isBackward) {
                     maxValue
@@ -116,7 +122,7 @@ class TimerView(context: Context, attrs: AttributeSet): androidx.appcompat.widge
         canvas?.let {
             it.drawArc(oval, 0f, 360f, false, paint)
             paint.color = colorSecondary
-            it.drawArc(oval, 0f, 360f - degrees , false, paint)
+            it.drawArc(oval, 0f, 360f - degrees, false, paint)
         }
 
         super.onDraw(canvas)
@@ -124,7 +130,11 @@ class TimerView(context: Context, attrs: AttributeSet): androidx.appcompat.widge
 
     fun setValue(countdown: Int) {
         this.value = countdown
-        this.text = countdown.toString()
+        if (timeFormat) {
+            this.text = toTimeFormat(countdown)
+        } else {
+            this.text = countdown.toString()
+        }
         viewModel.setInitialValue(countdown)
         invalidate()
         requestLayout()
@@ -149,5 +159,19 @@ class TimerView(context: Context, attrs: AttributeSet): androidx.appcompat.widge
 
     fun setTimerViewListener(listener: TimerViewListener) {
         this.listener = listener
+    }
+
+    private fun toTimeFormat(value: Int): String {
+        val hours = value / 3600
+        var remainder = value - hours * 3600
+        val minutes = remainder / 60
+        remainder -= minutes * 60
+        val seconds = remainder
+
+        val formattedHours = String.format("%02d", hours)
+        val formattedMinutes = String.format("%02d", minutes)
+        val formattedSeconds = String.format("%02d", seconds)
+
+        return "${formattedHours}:${formattedMinutes}:${formattedSeconds}"
     }
 }
