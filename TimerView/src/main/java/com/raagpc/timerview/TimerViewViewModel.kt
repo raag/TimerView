@@ -25,6 +25,7 @@ class TimerViewViewModel(private var maxValue: Int, private var initialValue: In
 
     fun setInitialValue(initialValue: Int) {
         this.initialValue = initialValue
+        value.postValue(initialValue)
     }
 
     fun setIsBackward(isBackward: Boolean) {
