@@ -87,6 +87,10 @@ class TimerView(context: Context, attrs: AttributeSet): androidx.appcompat.widge
         viewModel.stop()
     }
 
+    fun pause() {
+        viewModel.pause()
+    }
+
     override fun onDraw(canvas: Canvas?) {
         val width = width.toFloat()
         val height = height.toFloat()

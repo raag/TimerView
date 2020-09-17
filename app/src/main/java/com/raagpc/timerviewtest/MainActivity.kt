@@ -44,8 +44,8 @@ class MainActivity : AppCompatActivity() {
             forwardTimer.start()
             backwardTimer.start()
         } else {
-            forwardTimer.stop()
-            backwardTimer.stop()
+            forwardTimer.pause()
+            backwardTimer.pause()
         }
         running = !running
     }
@@ -54,9 +54,6 @@ class MainActivity : AppCompatActivity() {
         backwardTimer.stop()
         forwardTimer.stop()
         running = false
-
-        backwardTimer.setValue(30)
-        forwardTimer.setValue(0)
     }
 
     private val forwardListener = object: TimerView.TimerViewListener {

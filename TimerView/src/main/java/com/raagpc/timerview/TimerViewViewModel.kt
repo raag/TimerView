@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 
 class TimerViewViewModel(private var maxValue: Int, private var initialValue: Int, private var isBackward: Boolean = false) : ViewModel() {
 
-    private lateinit var timer: CountDownTimer
+    private var timer: CountDownTimer? = null
     val value = MutableLiveData<Int>()
     val finished = MutableLiveData<Boolean>()
 
@@ -42,11 +42,23 @@ class TimerViewViewModel(private var maxValue: Int, private var initialValue: In
                 finished.postValue(true)
             }
         }
-        timer.start()
+        timer?.start()
+    }
+
+    fun pause() {
+        timer?.cancel()
     }
 
     fun stop() {
-        timer.cancel()
+        initialValue = if (isBackward) {
+            maxValue
+        } else {
+            0
+        }
+
+        value.postValue(initialValue)
+
+        timer?.cancel()
     }
 
     private fun initCountForward() {
@@ -61,7 +73,7 @@ class TimerViewViewModel(private var maxValue: Int, private var initialValue: In
                 finished.postValue(true)
             }
         }
-        timer.start()
+        timer?.start()
     }
 
 }
