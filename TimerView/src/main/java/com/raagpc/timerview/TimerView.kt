@@ -21,8 +21,8 @@ class TimerView(context: Context, attrs: AttributeSet): androidx.appcompat.widge
 
     private var maxValue: Int
     private var value: Int
-    private val colorPrimary: Int
-    private val colorSecondary: Int
+    private var colorPrimary: Int
+    private var colorSecondary: Int
     private val isBackward: Boolean
     private val timeFormat: Boolean
 
@@ -151,6 +151,14 @@ class TimerView(context: Context, attrs: AttributeSet): androidx.appcompat.widge
         viewModel.setIsBackward(isBackward)
         invalidate()
         requestLayout()
+    }
+
+    fun setColorPrimary(color: Int) {
+        this.colorPrimary = color
+    }
+
+    fun setColorSecondary(color: Int) {
+        this.colorSecondary = color
     }
 
     fun getValue(): Int {
