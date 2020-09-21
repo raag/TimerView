@@ -4,7 +4,11 @@ import android.os.CountDownTimer
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class TimerViewViewModel(private var maxValue: Int, private var initialValue: Int, private var isBackward: Boolean = false) : ViewModel() {
+class TimerViewViewModel(
+    private var maxValue: Int,
+    private var initialValue: Int,
+    private var isBackward: Boolean = false
+) : ViewModel() {
 
     private var timer: CountDownTimer? = null
     val value = MutableLiveData<Int>()
@@ -57,9 +61,9 @@ class TimerViewViewModel(private var maxValue: Int, private var initialValue: In
             0
         }
 
-        value.postValue(initialValue)
-
         timer?.cancel()
+
+        value.postValue(initialValue)
     }
 
     private fun initCountForward() {

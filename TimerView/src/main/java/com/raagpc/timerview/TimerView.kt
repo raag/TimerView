@@ -7,6 +7,7 @@ import android.graphics.RectF
 import android.graphics.Typeface
 import android.util.AttributeSet
 import android.view.Gravity
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 
 class TimerView(context: Context, attrs: AttributeSet): androidx.appcompat.widget.AppCompatTextView(
@@ -61,7 +62,10 @@ class TimerView(context: Context, attrs: AttributeSet): androidx.appcompat.widge
                 recycle()
             }
 
-            viewModel = TimerViewViewModel(maxValue, value, isBackward)
+            val activity = context as AppCompatActivity
+            val provider = TimerViewViewModelFactory(maxValue, value, isBackward)
+            viewModel = ViewModelProvider(activity, provider).get(TimerViewViewModel::class.java)
+
             setupObservers()
         }
     }
@@ -170,10 +174,10 @@ class TimerView(context: Context, attrs: AttributeSet): androidx.appcompat.widge
     }
 
     private fun getFormattedValue(countdown: Int): String {
-        if (timeFormat) {
-            return toTimeFormat(countdown)
+        return if (timeFormat) {
+            toTimeFormat(countdown)
         } else {
-            return countdown.toString()
+            countdown.toString()
         }
     }
 

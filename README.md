@@ -21,7 +21,7 @@ allprojects {
 
 ```kotlin
 dependencies {
-    implementation 'com.github.raag:TimerView:v0.5.7beta'
+    implementation 'com.github.raag:TimerView:v0.5.8beta'
 }
 ```
 <img alt="build_app" data-align="center" data-entity-type="file" data-entity-uuid="7e40e34c-f9de-4baa-ac45-3ff6b656bece" src="https://user-images.githubusercontent.com/851942/86077221-360a8d80-ba51-11ea-89c8-c2773e364420.png" />
